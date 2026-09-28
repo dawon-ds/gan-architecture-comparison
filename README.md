@@ -29,7 +29,12 @@ In this implementation, each scalar class label is expanded to the same width as
 
 ## Generated Samples
 
-Generated samples from the original coursework are included in the `results/` directory for all six dataset/model combinations.
+Generated samples from the original coursework are included below for all six dataset/model combinations.
+
+| Dataset | Vanilla GAN | DCGAN | CGAN |
+|---|---|---|---|
+| MNIST | ![MNIST Vanilla](MNIST_Vanilla.jpg) | ![MNIST DCGAN](MNIST_DCGAN.jpg) | ![MNIST CGAN](MNIST_CGAN.jpg) |
+| Fashion-MNIST | ![Fashion Vanilla](Fashion_Vanilla.jpg) | ![Fashion DCGAN](Fashion_DCGAN.jpg) | ![Fashion CGAN](Fashion_CGAN.jpg) |
 
 The submitted coursework does not include a quantitative generation metric such as FID, so this repository presents the comparison as an architectural and qualitative experiment rather than claiming a numerical winner.
 
@@ -44,7 +49,9 @@ gan-architecture-comparison/
 │   └── cgan.py          # Conditional GAN
 ├── scripts/
 │   └── train_gan.py
-├── results/             # Six generated sample images
+├── *_Vanilla.jpg       # Generated sample images
+├── *_DCGAN.jpg
+├── *_CGAN.jpg
 ├── .gitignore
 ├── README.md
 └── requirements.txt
