@@ -33,8 +33,8 @@ Generated samples from the original coursework are included below for all six da
 
 | Dataset | Vanilla GAN | DCGAN | CGAN |
 |---|---|---|---|
-| MNIST | ![MNIST Vanilla](MNIST_Vanilla.jpg) | ![MNIST DCGAN](MNIST_DCGAN.jpg) | ![MNIST CGAN](MNIST_CGAN.jpg) |
-| Fashion-MNIST | ![Fashion Vanilla](Fashion_Vanilla.jpg) | ![Fashion DCGAN](Fashion_DCGAN.jpg) | ![Fashion CGAN](Fashion_CGAN.jpg) |
+| MNIST | ![MNIST Vanilla](results/MNIST_Vanilla.jpg) | ![MNIST DCGAN](results/MNIST_DCGAN.jpg) | ![MNIST CGAN](results/MNIST_CGAN.jpg) |
+| Fashion-MNIST | ![Fashion Vanilla](results/Fashion_Vanilla.jpg) | ![Fashion DCGAN](results/Fashion_DCGAN.jpg) | ![Fashion CGAN](results/Fashion_CGAN.jpg) |
 
 The submitted coursework does not include a quantitative generation metric such as FID, so this repository presents the comparison as an architectural and qualitative experiment rather than claiming a numerical winner.
 
@@ -49,9 +49,7 @@ gan-architecture-comparison/
 │   └── cgan.py          # Conditional GAN
 ├── scripts/
 │   └── train_gan.py
-├── *_Vanilla.jpg       # Generated sample images
-├── *_DCGAN.jpg
-├── *_CGAN.jpg
+├── results/             # Six generated sample images
 ├── .gitignore
 ├── README.md
 └── requirements.txt
