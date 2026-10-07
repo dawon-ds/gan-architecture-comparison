@@ -2,6 +2,14 @@
 
 A PyTorch comparison of **Vanilla GAN, DCGAN, and Conditional GAN (CGAN)** on **MNIST** and **Fashion-MNIST**. The project focuses on how architectural differences and class conditioning affect generated 28×28 grayscale images.
 
+[Portfolio](https://incredible-march-0ef.notion.site/GAN-Architecture-Comparison-3e968564df5a8108bf64effa42fb6991)
+
+## Project Overview
+
+The goal is to implement a baseline adversarial learning workflow and compare it with convolutional and class-conditioned alternatives. Three architectures are applied to two datasets, creating **six experiment combinations**.
+
+**Technologies:** Python, PyTorch, Torchvision, TensorBoard.
+
 ## Models
 
 | Model | Generator / Discriminator | Key idea |
@@ -26,6 +34,16 @@ In this implementation, each scalar class label is expanded to the same width as
 - Adam betas: (0.5, 0.999)
 - Maximum epochs: 40
 - Loss: Binary Cross Entropy
+
+## Training Workflow
+
+1. Load the selected training dataset and normalize pixels to approximately `[-1, 1]`.
+2. Sample Gaussian latent vectors and generate images.
+3. Update the Discriminator using real images and detached generated images.
+4. Sample new latent vectors and update the Generator through the Discriminator.
+5. Log losses, generate preview grids, and save model checkpoints.
+
+For CGAN, class labels are passed to both networks. Preview generation uses two examples per class for labels 0–9, giving 20 preview images even though the configuration's `num_show_img` is 50. The other models use `num_show_img` directly.
 
 ## Generated Samples
 
@@ -60,12 +78,37 @@ gan-architecture-comparison/
 From the repository root:
 
 ```bash
+pip install -r requirements.txt
 python scripts/train_gan.py config/mnist_vanilla.yaml
 python scripts/train_gan.py config/mnist_dcgan.yaml
 python scripts/train_gan.py config/mnist_cgan.yaml
 ```
 
 Replace `mnist` with `fashion` to run the Fashion-MNIST experiments. Torchvision downloads the selected dataset automatically.
+
+Each run writes artifacts under `runs/<timestamp>/`:
+
+| Directory | Contents |
+| --- | --- |
+| `checkpoints/` | Generator and Discriminator weights saved each epoch |
+| `images/` | Generated preview grids saved every 300 training steps |
+| `summaries/` | TensorBoard Generator and Discriminator loss logs |
+
+To inspect training logs:
+
+```bash
+tensorboard --logdir runs
+```
+
+The included sample images are outputs from the original coursework. This documentation update did not retrain the six models.
+
+## Limitations & Review
+
+The experiment illustrates differences between dense layers, convolutional image modeling, and class-conditioned inputs. The sample grids provide qualitative evidence of generated outputs, without establishing a numerical performance ranking.
+
+No FID, repeated-seed comparison, class-consistency score, or systematic diversity measurement is reported. Raw scalar labels also impose a numeric representation on categorical classes; one-hot conditions or learned label embeddings would be useful alternatives to compare.
+
+Implementing the shared adversarial training loop provided experience coordinating two optimizers, detaching samples during Discriminator updates, and monitoring generated images alongside loss curves.
 
 ## Portfolio Refactoring
 
