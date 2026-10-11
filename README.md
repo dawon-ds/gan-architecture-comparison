@@ -10,7 +10,9 @@ The goal is to implement a baseline adversarial learning workflow and compare it
 
 **Technologies:** Python, PyTorch, Torchvision, TensorBoard.
 
-## Models
+## Approach
+
+### Models
 
 | Model | Generator / Discriminator | Key idea |
 |---|---|---|
@@ -22,7 +24,7 @@ The goal is to implement a baseline adversarial learning workflow and compare it
 
 In this implementation, each scalar class label is expanded to the same width as the latent vector for the Generator and to the flattened image width for the Discriminator. The expanded condition is then concatenated with the corresponding input. It does **not** use one-hot encoding or a learned label embedding.
 
-## Experiment Setup
+### Experiment Setup
 
 - Datasets: MNIST, Fashion-MNIST
 - Image size: 28 × 28, grayscale
@@ -35,7 +37,7 @@ In this implementation, each scalar class label is expanded to the same width as
 - Maximum epochs: 40
 - Loss: Binary Cross Entropy
 
-## Training Workflow
+### Training Workflow
 
 1. Load the selected training dataset and normalize pixels to approximately `[-1, 1]`.
 2. Sample Gaussian latent vectors and generate images.
@@ -45,7 +47,9 @@ In this implementation, each scalar class label is expanded to the same width as
 
 For CGAN, class labels are passed to both networks. Preview generation uses two examples per class for labels 0–9, giving 20 preview images even though the configuration's `num_show_img` is 50. The other models use `num_show_img` directly.
 
-## Generated Samples
+## Results
+
+### Generated Samples
 
 Generated samples from the original coursework are included below for all six dataset/model combinations.
 
@@ -56,7 +60,7 @@ Generated samples from the original coursework are included below for all six da
 
 The submitted coursework does not include a quantitative generation metric such as FID, so this repository presents the comparison as an architectural and qualitative experiment rather than claiming a numerical winner.
 
-## Project Structure
+## Repository Structure
 
 ```text
 gan-architecture-comparison/
@@ -73,7 +77,7 @@ gan-architecture-comparison/
 └── requirements.txt
 ```
 
-## Run
+## Usage
 
 From the repository root:
 
@@ -102,14 +106,12 @@ tensorboard --logdir runs
 
 The included sample images are outputs from the original coursework. This documentation update did not retrain the six models.
 
-## Limitations & Review
+## Limitations
 
 The experiment illustrates differences between dense layers, convolutional image modeling, and class-conditioned inputs. The sample grids provide qualitative evidence of generated outputs, without establishing a numerical performance ranking.
 
 No FID, repeated-seed comparison, class-consistency score, or systematic diversity measurement is reported. Raw scalar labels also impose a numeric representation on categorical classes; one-hot conditions or learned label embeddings would be useful alternatives to compare.
 
+## Review
+
 Implementing the shared adversarial training loop provided experience coordinating two optimizers, detaching samples during Discriminator updates, and monitoring generated images alongside loss curves.
-
-## Portfolio Refactoring
-
-The original coursework used a course-specific `DL_Lecture` import path. This portfolio version replaces it with local module imports, provides separate relative configuration files for all six experiments, and uses the actual current batch size when sampling latent vectors so the training loop also handles a smaller final batch.
