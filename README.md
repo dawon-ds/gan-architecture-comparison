@@ -2,7 +2,6 @@
 
 A PyTorch comparison of **Vanilla GAN, DCGAN, and Conditional GAN (CGAN)** on **MNIST** and **Fashion-MNIST**. The project focuses on how architectural differences and class conditioning affect generated 28×28 grayscale images.
 
-[Portfolio](https://incredible-march-0ef.notion.site/GAN-Architecture-Comparison-3e968564df5a8108bf64effa42fb6991)
 
 ## Project Overview
 
