@@ -117,3 +117,10 @@ No FID, repeated-seed comparison, class-consistency score, or systematic diversi
 ## Review
 
 Implementing the shared adversarial training loop provided experience coordinating two optimizers, detaching samples during Discriminator updates, and monitoring generated images alongside loss curves.
+
+## Data and Third-party Resources
+
+- **Datasets:** MNIST and Fashion-MNIST are downloaded by Torchvision at runtime. Review the dataset owners' terms for any redistribution of derived samples.
+- **Environment:** generated weights and run folders are excluded. Python package requirements are listed, but the historical environment is not fully pinned.
+
+Dependency lists are in `requirements.txt`; unless versions are explicitly pinned there, they do not reproduce an exact historical software environment. No redistribution permission for third-party inputs is implied by this repository.
