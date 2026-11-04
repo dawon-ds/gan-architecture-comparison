@@ -49,6 +49,8 @@ For CGAN, class labels are passed to both networks. Preview generation uses two 
 
 ## Results
 
+The comparison is **qualitative**: generated samples are available, but no FID or other quantitative quality metric was recorded.
+
 ### Generated Samples
 
 Generated samples from the original coursework are included below for all six dataset/model combinations.
