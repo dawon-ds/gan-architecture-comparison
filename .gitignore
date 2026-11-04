@@ -9,3 +9,6 @@ runs/
 *.pth
 *.pt
 .DS_Store
+.env
+.env.*
+!.env.example
