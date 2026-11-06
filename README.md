@@ -2,12 +2,7 @@
 
 [Portfolio Page](https://app.notion.com/p/3e968564df5a8108bf64effa42fb6991)
 
-A PyTorch comparison of **Vanilla GAN, DCGAN, and Conditional GAN (CGAN)** on **MNIST** and **Fashion-MNIST**. The project focuses on how architectural differences and class conditioning affect generated 28×28 grayscale images.
-
-
-## Project Overview
-
-The goal is to implement a baseline adversarial learning workflow and compare it with convolutional and class-conditioned alternatives. Three architectures are applied to two datasets, creating **six experiment combinations**.
+A PyTorch comparison of **Vanilla GAN, DCGAN, and Conditional GAN (CGAN)** on **MNIST** and **Fashion-MNIST**, examining six model–dataset combinations of generated 28×28 grayscale images.
 
 **Technologies:** Python, PyTorch, Torchvision, TensorBoard.
 
@@ -50,18 +45,14 @@ For CGAN, class labels are passed to both networks. Preview generation uses two 
 
 ## Results
 
-The comparison is **qualitative**: generated samples are available, but no FID or other quantitative quality metric was recorded.
-
 ### Generated Samples
 
-Generated samples from the original coursework are included below for all six dataset/model combinations.
+Original coursework samples for all six model–dataset combinations are shown below. No FID or other quantitative image-quality metric was measured.
 
 | Dataset | Vanilla GAN | DCGAN | CGAN |
 |---|---|---|---|
 | MNIST | ![MNIST Vanilla](results/MNIST_Vanilla.jpg) | ![MNIST DCGAN](results/MNIST_DCGAN.jpg) | ![MNIST CGAN](results/MNIST_CGAN.jpg) |
 | Fashion-MNIST | ![Fashion Vanilla](results/Fashion_Vanilla.jpg) | ![Fashion DCGAN](results/Fashion_DCGAN.jpg) | ![Fashion CGAN](results/Fashion_CGAN.jpg) |
-
-The submitted coursework does not include a quantitative generation metric such as FID, so this repository presents the comparison as an architectural and qualitative experiment rather than claiming a numerical winner.
 
 ## Repository Structure
 
@@ -111,17 +102,11 @@ The included sample images are outputs from the original coursework. This docume
 
 ## Limitations
 
-The experiment illustrates differences between dense layers, convolutional image modeling, and class-conditioned inputs. The sample grids provide qualitative evidence of generated outputs, without establishing a numerical performance ranking.
-
 No FID, repeated-seed comparison, class-consistency score, or systematic diversity measurement is reported. Raw scalar labels also impose a numeric representation on categorical classes; one-hot conditions or learned label embeddings would be useful alternatives to compare.
-
-## Review
-
-Implementing the shared adversarial training loop provided experience coordinating two optimizers, detaching samples during Discriminator updates, and monitoring generated images alongside loss curves.
 
 ## Data and Third-party Resources
 
 - **Datasets:** MNIST and Fashion-MNIST are downloaded by Torchvision at runtime. Review the dataset owners' terms for any redistribution of derived samples.
-- **Environment:** generated weights and run folders are excluded. Python package requirements are listed, but the historical environment is not fully pinned.
+- **Environment:** generated weights and run folders are excluded.
 
 Dependency lists are in `requirements.txt`; unless versions are explicitly pinned there, they do not reproduce an exact historical software environment. No redistribution permission for third-party inputs is implied by this repository.
