@@ -41,11 +41,7 @@ In this implementation, each scalar class label is expanded to the same width as
 4. Sample new latent vectors and update the Generator through the Discriminator.
 5. Log losses, generate preview grids, and save model checkpoints.
 
-For CGAN, class labels are passed to both networks. Preview generation uses two examples per class for labels 0–9, giving 20 preview images even though the configuration's `num_show_img` is 50. The other models use `num_show_img` directly.
-
 ## Results
-
-### Generated Samples
 
 Original coursework samples for all six model–dataset combinations are shown below. No FID or other quantitative image-quality metric was measured.
 
@@ -97,8 +93,6 @@ To inspect training logs:
 ```bash
 tensorboard --logdir runs
 ```
-
-The included sample images are outputs from the original coursework. This documentation update did not retrain the six models.
 
 ## Limitations
 
